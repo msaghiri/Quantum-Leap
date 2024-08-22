@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfjydmcdlxvl2"]
+
+[ext_resource type="Script" path="res://Scripts/CursorPlacer.gd" id="1_6bwld"]
+[ext_resource type="Texture2D" uid="uid://csxb47afe1t1p" path="res://Sprites/Misc/placeable.png" id="2_ejta3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ma1a"]
+size = Vector2(48, 47)
+
+[node name="CursorPlacer" type="Node2D"]
+script = ExtResource("1_6bwld")
+
+[node name="Predictor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Predictor"]
+position = Vector2(24, 23.5)
+shape = SubResource("RectangleShape2D_2ma1a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Predictor"]
+modulate = Color(0.427451, 0.513726, 0, 0.517647)
+self_modulate = Color(1, 1, 1, 0.4)
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ejta3")
+
+[connection signal="body_entered" from="Predictor" to="." method="_on_predictor_body_entered"]
+[connection signal="body_exited" from="Predictor" to="." method="_on_predictor_body_exited"]

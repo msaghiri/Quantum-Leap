@@ -1,0 +1,193 @@
+[gd_scene load_steps=14 format=3 uid="uid://0yf5ou2sif7v"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_747su"]
+[ext_resource type="FontFile" uid="uid://cyhojbodykuqe" path="res://Fonts/VPPixel-Simplified.otf" id="2_7x3r6"]
+[ext_resource type="Texture2D" uid="uid://2lly03oyn56h" path="res://Sprites/Misc/progressbar_progress.png" id="3_iw52i"]
+[ext_resource type="Texture2D" uid="uid://b1fld41l5dkxn" path="res://Sprites/Misc/progressbar_over.png" id="4_4ll8k"]
+[ext_resource type="Texture2D" uid="uid://b8ndnxhnqg2f2" path="res://Sprites/Misc/AnimationCoin/tile000.png" id="5_x7oec"]
+[ext_resource type="Texture2D" uid="uid://dxc85ix0oxe3l" path="res://Sprites/Misc/AnimationCoin/tile001.png" id="6_55xlx"]
+[ext_resource type="Texture2D" uid="uid://dge6wa50nlbe5" path="res://Sprites/Misc/AnimationCoin/tile002.png" id="7_jm26q"]
+[ext_resource type="Texture2D" uid="uid://bam7p1mqpp02e" path="res://Sprites/Misc/AnimationCoin/tile003.png" id="8_cbr5k"]
+
+[sub_resource type="Theme" id="Theme_ywg6e"]
+default_font = ExtResource("2_7x3r6")
+default_font_size = 20
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cigax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x7oec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_55xlx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jm26q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cbr5k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_hcn2u"]
+resource_name = "fade"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3ese3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4pcld"]
+_data = {
+"RESET": SubResource("Animation_3ese3"),
+"fade": SubResource("Animation_hcn2u")
+}
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_747su")
+metadata/_edit_vertical_guides_ = [310.0, 14.0]
+metadata/_edit_horizontal_guides_ = [50.0, 349.0]
+
+[node name="EnergyAmt" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 398.0
+offset_top = 16.0
+offset_right = 471.0
+offset_bottom = 45.0
+scale = Vector2(1.5, 1.5)
+theme = SubResource("Theme_ywg6e")
+theme_override_colors/font_outline_color = Color(0.631373, 0.368627, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]150"
+
+[node name="EnergyLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 180.0
+offset_top = 2.0
+offset_right = 253.0
+offset_bottom = 31.0
+theme = SubResource("Theme_ywg6e")
+theme_override_colors/font_outline_color = Color(0.631373, 0.368627, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]ENERGY"
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 452.0
+offset_top = 316.0
+offset_right = 681.0
+offset_bottom = 386.0
+theme = SubResource("Theme_ywg6e")
+theme_override_colors/font_shadow_color = Color(0.490196, 0.364706, 1, 1)
+theme_override_colors/font_outline_color = Color(0.847059, 0, 0.462745, 1)
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 26
+text = "score:"
+
+[node name="EnergyBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 14.0
+offset_top = 30.0
+offset_right = 423.0
+offset_bottom = 46.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("3_iw52i")
+texture_over = ExtResource("4_4ll8k")
+texture_progress = ExtResource("3_iw52i")
+tint_under = Color(0.858824, 0.584314, 0.168627, 0.141176)
+tint_over = Color(0.776471, 0.360784, 0.0588235, 1)
+tint_progress = Color(0.666667, 0, 0.184314, 0.490196)
+
+[node name="EnergyDecay" type="Timer" parent="EnergyBar"]
+wait_time = 4.0
+
+[node name="CoinIndicator" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(587, 40)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_cigax")
+frame_progress = 0.287751
+
+[node name="CoinAmt" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 495.0
+offset_top = 12.0
+offset_right = 555.0
+offset_bottom = 44.0
+scale = Vector2(1.5, 1.5)
+theme = SubResource("Theme_ywg6e")
+theme_override_colors/font_shadow_color = Color(0.690196, 0, 0.509804, 1)
+theme_override_colors/font_outline_color = Color(0, 0.376471, 0.317647, 1)
+theme_override_constants/shadow_outline_size = 6
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[center]0"
+
+[node name="PurchaseEnergy" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 326.0
+offset_right = 359.0
+offset_bottom = 355.0
+scale = Vector2(1.5, 1.5)
+theme = SubResource("Theme_ywg6e")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "PRESS E TO PURCHASE ENERGY..."
+
+[node name="AnimateText" type="AnimationPlayer" parent="PurchaseEnergy"]
+libraries = {
+"": SubResource("AnimationLibrary_4pcld")
+}
+
+[connection signal="timeout" from="EnergyBar/EnergyDecay" to="." method="_on_energy_decay_timeout"]
+[connection signal="animation_finished" from="PurchaseEnergy/AnimateText" to="." method="_on_animate_text_animation_finished"]

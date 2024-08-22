@@ -1,0 +1,16 @@
+res://Scenes/GUI/hud.tscn::15255203ffbf5217d27e34c14a54130e::1690039940::res://.godot/exported/133200997/export-af4786cb9ec61c11d197cd4c13629f7d-hud.scn
+res://Scenes/Platforms/Platform.tscn::83fe0a22d6caff75dbaf965c65ad4f0a::1690039940::res://.godot/exported/133200997/export-941052fc2ef9edc7bca50ee3bb76d01a-Platform.scn
+res://Scenes/Platforms/SmallPlatform.tscn::1cb3849444afba9d8803a6cd94f8db29::1690039940::res://.godot/exported/133200997/export-d0f79c1fe492e0384a6616f0ff2467f1-SmallPlatform.scn
+res://Scenes/Platforms/UserPlatform.tscn::08fd4a8f2696c00620428c787b94b552::1689652352::res://.godot/exported/133200997/export-fef171ce102791027c365d74b3abc54c-UserPlatform.scn
+res://Scenes/Background.tscn::b7c651ee0fe45a6c7e3d64ccbe387eba::1689743587::res://.godot/exported/133200997/export-b394a4340ed895386261b9ccc00eb92f-Background.scn
+res://Scenes/CursorPlacer.tscn::39d990906e99fc7d7bbac8b9debeaab3::1689873464::res://.godot/exported/133200997/export-c77c6e45328dffe96981c492520977d4-CursorPlacer.scn
+res://Scenes/MainGame.tscn::f8b02f83ba5571f2ca0594046e786ef7::1690040588::res://.godot/exported/133200997/export-19fa3de1633fb1728f917afd200a0739-MainGame.scn
+res://Scenes/MainMenu.tscn::0208a83f4aa7bd8b153f52b7b5b58400::1690039940::res://.godot/exported/133200997/export-5d46f2c25b5b7595677274e5845c73b8-MainMenu.scn
+res://Scenes/Player.tscn::14573055d672a655c4354beaed2a9729::1689974097::res://.godot/exported/133200997/export-a7209d3b864edc0146622aad500fa2c1-Player.scn
+res://Scenes/SceneTransition.tscn::022bb9833dc17f2afe7b806885c9bd3b::1690039940::res://.godot/exported/133200997/export-f4038d93b79bbe6399571f646debaa31-SceneTransition.scn
+res://new_theme.tres::b1ff7f0bc6b2d5b1e8ad8080dc870f4f::1690039183::res://.godot/exported/133200997/export-de75b109a0ef34bfbb9569df46f58a57-new_theme.res
+res://Scenes/Credits.tscn::321b496613c3dc1f69b27ba62691cb85::1689873464::res://.godot/exported/133200997/export-ba10b6bf9b68ff95e16c5bbd546b3ea2-Credits.scn
+res://Scenes/MenuMusic.tscn::d2c653bece859039d38eca13b181dc88::1689806863::res://.godot/exported/133200997/export-a081bf60eb780b572965abf4291a6b30-MenuMusic.scn
+res://Scenes/SplashScreen.tscn::679efd6368af6513d21ff92b7da5639f::1689873464::res://.godot/exported/133200997/export-65b195014eb03e1687fb37774499c26b-SplashScreen.scn
+res://Scenes/GUI/GameOver.tscn::7d532fdd853a45613eb3fefefa1cee8d::1690039940::res://.godot/exported/133200997/export-4cf5f5a6874910aa5a4e148c044c79e6-GameOver.scn
+res://Scenes/Coin.tscn::97fe8de08e4b06f385488c307611adb0::1690039940::res://.godot/exported/133200997/export-5afbf744fed0b8242a47725670cb66a2-Coin.scn

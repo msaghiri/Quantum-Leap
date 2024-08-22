@@ -1,0 +1,137 @@
+[gd_scene load_steps=13 format=3 uid="uid://1ajidqoxkniy"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_uni8g"]
+[ext_resource type="Texture2D" uid="uid://bixcu58v433un" path="res://Sprites/Background/1.png" id="2_2hyj4"]
+[ext_resource type="Texture2D" uid="uid://dba3oyxg8vpqq" path="res://Sprites/Background/3.png" id="3_e5hnv"]
+[ext_resource type="Theme" uid="uid://da2m47ru65n7v" path="res://new_theme.tres" id="4_wpkil"]
+[ext_resource type="FontFile" uid="uid://cyhojbodykuqe" path="res://Fonts/VPPixel-Simplified.otf" id="5_js6vb"]
+[ext_resource type="FontFile" uid="uid://cpu1vkudxdojx" path="res://Fonts/Symtext.ttf" id="6_nfy05"]
+[ext_resource type="Texture2D" uid="uid://cuy3yqtpyb4ew" path="res://Sprites/Misc/trianglepointer.png" id="7_js7xt"]
+[ext_resource type="PackedScene" uid="uid://c4dightaeyhs3" path="res://Scenes/MenuMusic.tscn" id="8_gkovo"]
+[ext_resource type="AudioStream" uid="uid://3u3vsraheamp" path="res://Music/button_select.wav" id="9_dcytt"]
+[ext_resource type="Theme" uid="uid://b61ysfxtqsabv" path="res://Scenes/MenuTextTheme.tres" id="10_hhtbc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c22dh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_of0r4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_uni8g")
+metadata/_edit_horizontal_guides_ = [-102.0]
+metadata/_edit_vertical_guides_ = [310.0]
+
+[node name="MenuBG" type="ParallaxBackground" parent="."]
+
+[node name="FIrstLayer" type="ParallaxLayer" parent="MenuBG"]
+motion_mirroring = Vector2(620, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuBG/FIrstLayer"]
+modulate = Color(0.317647, 0, 0.317647, 1)
+texture = ExtResource("2_2hyj4")
+centered = false
+
+[node name="SecondLayer" type="ParallaxLayer" parent="MenuBG"]
+modulate = Color(0.615686, 0.0588235, 0.321569, 0.2)
+motion_mirroring = Vector2(1240, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuBG/SecondLayer"]
+modulate = Color(0.317647, 0, 0.317647, 1)
+texture = ExtResource("3_e5hnv")
+centered = false
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 53.0
+offset_top = 258.0
+offset_right = 111.0
+offset_bottom = 287.0
+scale = Vector2(1.5, 1.5)
+focus_mode = 0
+theme = ExtResource("4_wpkil")
+theme_override_styles/focus = SubResource("StyleBoxFlat_c22dh")
+text = "Start"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 53.0
+offset_top = 304.0
+offset_right = 92.0
+offset_bottom = 333.0
+scale = Vector2(1.5, 1.5)
+focus_mode = 0
+theme = ExtResource("4_wpkil")
+theme_override_styles/focus = SubResource("StyleBoxFlat_of0r4")
+text = "Quit"
+alignment = 0
+
+[node name="creditme" type="RichTextLabel" parent="."]
+offset_left = 448.0
+offset_top = 334.0
+offset_right = 653.0
+offset_bottom = 374.0
+theme_override_colors/font_shadow_color = Color(1, 0.505882, 0.85098, 1)
+theme_override_fonts/normal_font = ExtResource("5_js6vb")
+theme_override_font_sizes/normal_font_size = 17
+text = "Mahmood Al-Saghiri"
+
+[node name="Title" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 28.0
+offset_top = 194.0
+offset_right = 432.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.67451, 0, 0.470588, 1)
+theme_override_colors/font_shadow_color = Color(0.972549, 0, 0.541176, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 0.666667, 1, 1)
+theme_override_constants/shadow_outline_size = 11
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("6_nfy05")
+theme_override_font_sizes/normal_font_size = 39
+text = " Quantum Leap"
+
+[node name="trianglePointer" type="Sprite2D" parent="."]
+modulate = Color(1, 0.235294, 0.815686, 0.733333)
+texture_filter = 1
+position = Vector2(36, 330)
+scale = Vector2(0.49375, 0.49375)
+texture = ExtResource("7_js7xt")
+
+[node name="MenuMusic" parent="." instance=ExtResource("8_gkovo")]
+
+[node name="MenuSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_dcytt")
+volume_db = 6.367
+
+[node name="CreditsButton" type="Button" parent="."]
+texture_filter = 1
+offset_left = 504.0
+offset_top = 5.0
+offset_right = 598.0
+offset_bottom = 54.0
+focus_mode = 0
+theme = ExtResource("10_hhtbc")
+text = "CREDITS"
+
+[node name="HighScore" type="RichTextLabel" parent="."]
+offset_right = 235.0
+offset_bottom = 63.0
+theme = ExtResource("10_hhtbc")
+theme_override_colors/font_outline_color = Color(1, 0.0901961, 0.54902, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 23
+text = "High Score:"
+
+[connection signal="focus_entered" from="StartButton" to="." method="_on_start_button_focus_entered"]
+[connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="QuitButton" to="." method="_on_quit_button_focus_entered"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

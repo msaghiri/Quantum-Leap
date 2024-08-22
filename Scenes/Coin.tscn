@@ -1,0 +1,126 @@
+[gd_scene load_steps=18 format=3 uid="uid://c72uiijq6ipwk"]
+
+[ext_resource type="Texture2D" uid="uid://jwc67vol300m" path="res://Sprites/Misc/coin.png" id="1_2n002"]
+[ext_resource type="Texture2D" uid="uid://b8ndnxhnqg2f2" path="res://Sprites/Misc/AnimationCoin/tile000.png" id="1_33vte"]
+[ext_resource type="Script" path="res://Scripts/Coin.gd" id="1_k30aa"]
+[ext_resource type="Texture2D" uid="uid://dxc85ix0oxe3l" path="res://Sprites/Misc/AnimationCoin/tile001.png" id="2_6jsgc"]
+[ext_resource type="Texture2D" uid="uid://dge6wa50nlbe5" path="res://Sprites/Misc/AnimationCoin/tile002.png" id="3_ryl2j"]
+[ext_resource type="Texture2D" uid="uid://bam7p1mqpp02e" path="res://Sprites/Misc/AnimationCoin/tile003.png" id="4_s67pg"]
+[ext_resource type="Texture2D" uid="uid://c2h0d8y6o3kg5" path="res://Sprites/Misc/AnimationCoin/CoinPickup/coinpickup_Animation 1_0.png" id="6_p6sfd"]
+[ext_resource type="Texture2D" uid="uid://cxjr1t4bw430g" path="res://Sprites/Misc/AnimationCoin/CoinPickup/coinpickup_Animation 1_1.png" id="7_2ii5x"]
+[ext_resource type="Texture2D" uid="uid://cssikaccsoou6" path="res://Sprites/Misc/AnimationCoin/CoinPickup/coinpickup_Animation 1_2.png" id="8_vl4i0"]
+[ext_resource type="Texture2D" uid="uid://cxdny3jmyswyp" path="res://Sprites/Misc/AnimationCoin/CoinPickup/coinpickup_Animation 1_3.png" id="9_883is"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41nmi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_33vte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6jsgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ryl2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s67pg")
+}],
+"loop": true,
+"name": &"coinspin",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_p6sfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2ii5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vl4i0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_883is")
+}],
+"loop": false,
+"name": &"pickup",
+"speed": 20.0
+}]
+
+[sub_resource type="Curve" id="Curve_yklcv"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.00890208, -360), 0.0, 0.0, 0, 0, Vector2(0.697329, 360), -122.597, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xbf2w"]
+curve = SubResource("Curve_yklcv")
+
+[sub_resource type="Gradient" id="Gradient_eyvx7"]
+offsets = PackedFloat32Array(0, 0.535948, 1)
+colors = PackedColorArray(1, 0.495243, 0.73605, 1, 0.360991, 0.00108371, 0.887826, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4m6h1"]
+gradient = SubResource("Gradient_eyvx7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4cs8s"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 5.0
+emission_ring_radius = 10.0
+emission_ring_inner_radius = 5.0
+particle_flag_disable_z = true
+direction = Vector3(0, -20, 0)
+spread = 55.0
+gravity = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+angular_velocity_curve = SubResource("CurveTexture_xbf2w")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_min = -31.11
+radial_accel_max = 23.33
+angle_min = -360.0
+angle_max = 360.0
+scale_min = 5.0
+scale_max = 8.0
+color = Color(0.634344, 0.0217542, 0.634033, 1)
+color_ramp = SubResource("GradientTexture1D_4m6h1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_736e5"]
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_k30aa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_41nmi")
+animation = &"pickup"
+frame = 3
+frame_progress = 1.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D"]
+visible = false
+modulate = Color(1, 1, 1, 0.466667)
+scale = Vector2(0.333333, 0.333333)
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_4cs8s")
+lifetime = 1.5
+visibility_rect = Rect2(-50, -25, 100, 50)
+local_coords = true
+
+[node name="gemSprite" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(57.0235, 0.203922, 40.298, 1)
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_2n002")
+
+[node name="CoinArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinArea"]
+shape = SubResource("RectangleShape2D_736e5")
+
+[connection signal="body_entered" from="CoinArea" to="." method="_on_coin_area_body_entered"]

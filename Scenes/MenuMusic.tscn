@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4dightaeyhs3"]
+
+[ext_resource type="AudioStream" uid="uid://bi6v858silew7" path="res://Music/OutThere.ogg" id="1_q27sl"]
+
+[node name="MenuMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_q27sl")
+volume_db = -5.0

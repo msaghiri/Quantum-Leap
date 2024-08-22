@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://mja117clqmuk"]
+
+[ext_resource type="Texture2D" uid="uid://bvvocdn03d1ss" path="res://Sprites/Misc/Image.png" id="1_tgg4p"]
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_vtsl0"]
+[ext_resource type="FontFile" uid="uid://cyhojbodykuqe" path="res://Fonts/VPPixel-Simplified.otf" id="2_yjfht"]
+
+[sub_resource type="Theme" id="Theme_dxibh"]
+default_font = ExtResource("2_yjfht")
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_ftvob"]
+default_font = ExtResource("2_yjfht")
+default_font_size = 20
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_vtsl0")
+metadata/_edit_vertical_guides_ = [310.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.490196, 0, 0.109804, 1)
+self_modulate = Color(0.843137, 0.843137, 0.843137, 1)
+texture = ExtResource("1_tgg4p")
+centered = false
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 196.0
+offset_top = 81.0
+offset_right = 425.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_dxibh")
+theme_override_colors/font_shadow_color = Color(0.490196, 0.364706, 1, 1)
+theme_override_colors/font_outline_color = Color(0.847059, 0, 0.462745, 1)
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]score:
+"
+
+[node name="Prompt" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 15.0
+offset_top = 326.0
+offset_right = 359.0
+offset_bottom = 355.0
+scale = Vector2(1.5, 1.5)
+theme = SubResource("Theme_ftvob")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Press any key to restart..."
+scroll_active = false

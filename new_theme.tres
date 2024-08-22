@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://da2m47ru65n7v"]
+
+[ext_resource type="FontFile" uid="uid://cyhojbodykuqe" path="res://Fonts/VPPixel-Simplified.otf" id="1_vo5pf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq6uv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcyyi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbhdd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[resource]
+default_font = ExtResource("1_vo5pf")
+default_font_size = 20
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0.6, 0.333333, 1, 1)
+Button/colors/font_pressed_color = Color(1, 0.537255, 0.992157, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_gq6uv")
+Button/styles/normal = SubResource("StyleBoxFlat_fcyyi")
+Button/styles/pressed = SubResource("StyleBoxFlat_fbhdd")

@@ -1,0 +1,11 @@
+res://Scenes/MainMenu.tscn
+res://new_theme.tres
+res://Scripts/MainMenu.gd
+res://Scenes/SceneTransition.tscn
+res://Scripts/GameOver.gd
+res://saves/savegame.txt
+res://Scripts/Coin.gd
+res://Scripts/GlobalVariables.gd
+res://Scripts/hud.gd
+res://Scripts/Platform.gd
+res://Scripts/Player.gd
